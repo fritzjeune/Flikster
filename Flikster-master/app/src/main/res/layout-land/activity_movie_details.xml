@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_flik">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/tbMovie"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        />
+
+    <ImageView
+        android:id="@+id/ivCollapsing"
+        android:layout_width="470dp"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@id/tbMovie"
+        android:layout_alignStart="@id/tbMovie"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="0dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/flicks_backdrop_placeholder" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="363dp"
+        android:layout_alignLeft="@id/ivCollapsing"
+        android:layout_alignTop="@id/tbMovie"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="475dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="@color/colorTitle"
+                android:textSize="24sp" />
+
+            <RatingBar
+                android:id="@+id/rtMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:stepSize="0.5" />
+
+            <TextView
+                android:id="@+id/tvOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="@color/colorOverview" />
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</RelativeLayout>

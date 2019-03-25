@@ -64,7 +64,34 @@ public class MainActivity extends AppCompatActivity {
         rvMovie.setLayoutManager(new LinearLayoutManager(this));
         rvMovie.setAdapter(adapter);
 
+        rvMovie.addOnScrollListener(onScrollListener);
+
     }
+
+    public RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
+        boolean hideToolBar = false;
+        @Override
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            super.onScrollStateChanged(recyclerView, newState);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            if (hideToolBar) {
+                getSupportActionBar().hide();
+            } else {
+                getSupportActionBar().show();
+            }
+        }
+
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            if (dy > 20) {
+                hideToolBar = true;
+
+            } else if (dy < -5) {
+                hideToolBar = false;
+            }
+        }
+    };
 
     private void getNowPlaying() {
         String url = API_BASE_URL + "/movie/now_playing";

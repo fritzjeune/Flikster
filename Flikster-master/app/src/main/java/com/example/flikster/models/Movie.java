@@ -2,14 +2,16 @@ package com.example.flikster.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.lang.reflect.Array;
-
+@Parcel
 public class Movie {
-    private String posterPath;
-    private String title;
-    private String overview;
-    private String backDropPath;
+    public String posterPath;
+    public String title;
+    public String overview;
+    public String backDropPath;
+    public double voteAverage;
 
     public String getPosterPath() {
         return posterPath;
@@ -27,11 +29,17 @@ public class Movie {
         return backDropPath;
     }
 
+    public Movie() {}
+
     public Movie(JSONObject object) throws JSONException {
         posterPath = object.getString("poster_path");
         title = object.getString("title");
         overview = object.getString("overview");
         backDropPath = object.getString("backdrop_path");
+        voteAverage = object.getDouble("vote_average");
     }
 
+    public double getVoteAverage() {
+        return voteAverage;
+    }
 }
