@@ -12,6 +12,16 @@ public class Movie {
     public String overview;
     public String backDropPath;
     public double voteAverage;
+    public String releaseDate;
+    public double popularity;
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public double getPopularity() {
+        return popularity;
+    }
 
     public String getPosterPath() {
         return posterPath;
@@ -37,6 +47,8 @@ public class Movie {
         overview = object.getString("overview");
         backDropPath = object.getString("backdrop_path");
         voteAverage = object.getDouble("vote_average");
+        releaseDate = object.getString("release_date");
+        popularity = object.getDouble("popularity");
     }
 
     public double getVoteAverage() {

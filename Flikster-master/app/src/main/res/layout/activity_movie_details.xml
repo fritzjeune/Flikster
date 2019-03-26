@@ -5,18 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MovieDetailsActivity"
-    android:background="@drawable/background_flik">
+    tools:context=".MovieDetailsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        style="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        style="@style/ThemeOverlay.AppCompat.Light">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="@color/colorPrimary"
+            app:contentScrim="#fff"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
@@ -52,13 +51,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="24sp"
-                android:textColor="@color/colorTitle"/>
+                android:padding="8dp"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/rlDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:inputType="date"
+                android:hint="2019-06-16"/>
 
             <RatingBar
                 android:id="@+id/rtMovie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:isIndicator="true"
                 android:numStars="5"
                 android:stepSize="0.5" />
@@ -68,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textColor="@color/colorOverview"/>
+                android:padding="8dp" />
 
 
         </LinearLayout>

@@ -15,6 +15,8 @@ import com.example.flikster.models.Movie;
 import org.json.JSONObject;
 import org.parceler.Parcels;
 
+import java.util.Date;
+
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieDetailsActivity extends AppCompatActivity {
@@ -23,6 +25,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView tvTitle, tvOverview;
     RatingBar rtMovie;
     ImageView ivMovie;
+    TextView rldate;
 
     Config config;
 
@@ -45,6 +48,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
         tvOverview = findViewById(R.id.tvOverview);
         rtMovie = findViewById(R.id.rtMovie);
         ivMovie = findViewById(R.id.ivCollapsing);
+        rldate = findViewById(R.id.rlDate);
+
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -60,7 +65,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         String  posterUrl = String.format("https://image.tmdb.org/t/p/w342/%s",movie.getBackDropPath());
 //        String url = config.getImageUrl(config.getBackDropSize(), movie.getBackDropPath());
 
-        int margin = 10;
+        int margin = 0;
         int radius = 10;
         GlideApp.with(this)
                 .load(posterUrl)
@@ -74,6 +79,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
         // set the title and overview
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
+
+        String releaseDt = movie.getReleaseDate();
+        rldate.setText("Release Date : " + releaseDt);
 
 //        vote average is 0..10, convert to 0..5 by dividing by 2
         float voteAverage = (float) movie.getVoteAverage();
